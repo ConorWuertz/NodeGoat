@@ -49,18 +49,19 @@ function SessionHandler(db) {
              ** Why are two different error messages      **
              ** bad?                                      **
              ***********************************************/
+             //FIXED: Using errorMessage so attacker gains no info in the event of correct username or password guess
             if (err) {
                 if (err.noSuchUser) {
                     return res.render("login", {
                         userName: userName,
                         password: "",
-                        loginError: invalidUserNameErrorMessage
+                        loginError: errorMessage
                     });
                 } else if (err.invalidPassword) {
                     return res.render("login", {
                         userName: userName,
                         password: "",
-                        loginError: invalidPasswordErrorMessage
+                        loginError: errorMessage
                     });
                 } else {
                     return next(err);
