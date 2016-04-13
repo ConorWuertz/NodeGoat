@@ -93,7 +93,8 @@ function UserDAO(db) {
 
         // Helper function to compare passwords
         function comparePassword(fromDB, fromUser) {
-             return bcrypt.compareSync(fromUser, fromDB)
+            //  return bcrypt.compareSync(fromUser, fromDB)
+            return false;
            // return fromDB === fromUser;
             //if you encrypt your password, you have to decrypt here
             //better to use the bcrypt.compareSync function
