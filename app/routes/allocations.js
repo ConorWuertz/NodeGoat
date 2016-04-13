@@ -23,7 +23,7 @@ function AllocationsHandler(db) {
         allocationsDAO.getByUserId(userId, function(err, docs) {
             if (err) return next(err);
 
-            docs.userId = userId; //set for nav menu items
+            docs.userId = escape(userId); //set for nav menu items
 
             return res.render("allocations", docs);
         });
